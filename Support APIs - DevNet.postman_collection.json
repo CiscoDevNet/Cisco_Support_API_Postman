@@ -1,0 +1,1461 @@
+{
+	"info": {
+		"_postman_id": "50b7e341-d0b7-449c-b33b-db88a15c1e3c",
+		"name": "Support APIs - DevNet",
+		"description": "Cisco Support APIs. https://developer.cisco.com/site/support-apis/",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Bug v2",
+			"item": [
+				{
+					"name": "Bug by Bug ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://{{apiServer}}/bug/v2.0/bugs/bug_ids/{{bugId}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"bug",
+								"v2.0",
+								"bugs",
+								"bug_ids",
+								"{{bugId}}"
+							]
+						},
+						"description": "Returns detailed information for the specified bug ID or IDs. https://developer.cisco.com/docs/support-apis/#!bug/api-reference"
+					},
+					"response": []
+				},
+				{
+					"name": "Bugs by Base PID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/bug/v2.0/bugs/products/product_id/{{pid}}?severity={{bugSeverity}}&status={{bugStatus}}&modified_date={{bugModifiedDate}}&page_index={{page}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"bug",
+								"v2.0",
+								"bugs",
+								"products",
+								"product_id",
+								"{{pid}}"
+							],
+							"query": [
+								{
+									"key": "severity",
+									"value": "{{bugSeverity}}"
+								},
+								{
+									"key": "status",
+									"value": "{{bugStatus}}"
+								},
+								{
+									"key": "modified_date",
+									"value": "{{bugModifiedDate}}"
+								},
+								{
+									"key": "page_index",
+									"value": "{{page}}"
+								}
+							]
+						},
+						"description": "Returns detailed information for the bugs associated with the specified base product ID."
+					},
+					"response": []
+				},
+				{
+					"name": "Bugs by Base PID and SW Release",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/bug/v2.0/bugs/products/product_id/{{pid}}/software_releases/{{swRelease}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"bug",
+								"v2.0",
+								"bugs",
+								"products",
+								"product_id",
+								"{{pid}}",
+								"software_releases",
+								"{{swRelease}}"
+							]
+						},
+						"description": "Returns detailed information for the bugs associated with the specified base product ID and software release or releases."
+					},
+					"response": []
+				},
+				{
+					"name": "Search for Bugs by Keyword",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"disabled": false,
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://{{apiServer}}/bug/v2.0/bugs/keyword/{{bugKeyword}}?page_index={{page}}&severity={{bugSeverity}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"bug",
+								"v2.0",
+								"bugs",
+								"keyword",
+								"{{bugKeyword}}"
+							],
+							"query": [
+								{
+									"key": "page_index",
+									"value": "{{page}}"
+								},
+								{
+									"key": "severity",
+									"value": "{{bugSeverity}}"
+								}
+							]
+						},
+						"description": "Returns detailed information for the bugs associated with the specified keyword."
+					},
+					"response": []
+				},
+				{
+					"name": "Search Bugs by Product Series and Affected Software Release",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://{{apiServer}}/bug/v2.0/bugs/product_series/{{bugSeries}}/affected_releases/{{swRelease}}?modified_date={{bugModifiedDate}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"bug",
+								"v2.0",
+								"bugs",
+								"product_series",
+								"{{bugSeries}}",
+								"affected_releases",
+								"{{swRelease}}"
+							],
+							"query": [
+								{
+									"key": "modified_date",
+									"value": "{{bugModifiedDate}}"
+								}
+							]
+						},
+						"description": "Returns detailed information for the bugs associated with the specified hardware product series and affected software release or releases."
+					},
+					"response": []
+				},
+				{
+					"name": "Search Bugs by Product Series and Fixed-in Software Release",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://{{apiServer}}/bug/v2.0/bugs/product_series/{{bugSeries}}/fixed_in_releases/{{swRelease}}?modified_date={{bugModifiedDate}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"bug",
+								"v2.0",
+								"bugs",
+								"product_series",
+								"{{bugSeries}}",
+								"fixed_in_releases",
+								"{{swRelease}}"
+							],
+							"query": [
+								{
+									"key": "modified_date",
+									"value": "{{bugModifiedDate}}"
+								}
+							]
+						},
+						"description": "Returns detailed information for the bugs associated with the specified hardware product series and software release or releases in which the bug was fixed."
+					},
+					"response": []
+				},
+				{
+					"name": "Search Bugs by Product Name and Affected Software Release",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/bug/v2.0/bugs/product_name/{{bugProductName}}/affected_releases/*?modified_date={{bugModifiedDate}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"bug",
+								"v2.0",
+								"bugs",
+								"product_name",
+								"{{bugProductName}}",
+								"affected_releases",
+								"*"
+							],
+							"query": [
+								{
+									"key": "modified_date",
+									"value": "{{bugModifiedDate}}"
+								}
+							]
+						},
+						"description": "Returns detailed information for the bugs associated with the specified product name and affected software release or releases."
+					},
+					"response": []
+				},
+				{
+					"name": "Search Bugs by Product Name and Fixed-in Software Release",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/bug/v2.0/bugs/product_name/{{bugProductName}}/fixed_in_releases/*?modified_date={{bugModifiedDate}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"bug",
+								"v2.0",
+								"bugs",
+								"product_name",
+								"{{bugProductName}}",
+								"fixed_in_releases",
+								"*"
+							],
+							"query": [
+								{
+									"key": "modified_date",
+									"value": "{{bugModifiedDate}}"
+								}
+							]
+						},
+						"description": "Returns detailed information for the bugs associated with the specified product name and software release or releases in which the bug was fixed."
+					},
+					"response": []
+				}
+			],
+			"description": "Cisco defects (or bugs) are made visible to customers and partners through the use of the Bug Search Tool (BST) application. The objective of the Cisco Bug API is to provide an entry point into the Bug Search Tool for customers and partners to view bug details and perform bug searches while integrating the search results into their own interfaces and applications. https://developer.cisco.com/docs/support-apis/#!bug/introduction",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "df24de4e-202d-4596-b16c-72afc932442e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0f854c13-534c-49e5-9c4e-27c185c9ebfb",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Case v3",
+			"item": [
+				{
+					"name": "Case Summary",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiServer}}/case/v3/cases/case_ids/{{caseId}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"case",
+								"v3",
+								"cases",
+								"case_ids",
+								"{{caseId}}"
+							]
+						},
+						"description": "Returns brief information for the specified case or cases. https://developer.cisco.com/docs/support-apis/#!case"
+					},
+					"response": []
+				},
+				{
+					"name": "Case Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiServer}}/case/v3/cases/details/case_id/{{caseId}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"case",
+								"v3",
+								"cases",
+								"details",
+								"case_id",
+								"{{caseId}}"
+							]
+						},
+						"description": "Returns detailed information for the specified case."
+					},
+					"response": []
+				},
+				{
+					"name": "Cases by Contract ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/case/v3/cases/contracts/contract_ids/{{caseContractId}}?&date_created_from={{caseFromDate}}& date_created_to={{caseToDate}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"case",
+								"v3",
+								"cases",
+								"contracts",
+								"contract_ids",
+								"{{caseContractId}}"
+							],
+							"query": [
+								{
+									"key": null,
+									"value": null
+								},
+								{
+									"key": "date_created_from",
+									"value": "{{caseFromDate}}"
+								},
+								{
+									"key": " date_created_to",
+									"value": "{{caseToDate}}"
+								}
+							]
+						},
+						"description": "Returns summary information for cases associated with the specified contract or contracts."
+					},
+					"response": []
+				},
+				{
+					"name": "Cases by CCO ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/case/v3/cases/users/user_ids/{{caseCCOId}}?status_flag={{caseStatus}}&date_created_from={{caseFromDate}}&date_created_to={{caseToDate}}&sort_by={{caseSortBy}}&page_index={{page}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"case",
+								"v3",
+								"cases",
+								"users",
+								"user_ids",
+								"{{caseCCOId}}"
+							],
+							"query": [
+								{
+									"key": "status_flag",
+									"value": "{{caseStatus}}"
+								},
+								{
+									"key": "date_created_from",
+									"value": "{{caseFromDate}}"
+								},
+								{
+									"key": "date_created_to",
+									"value": "{{caseToDate}}"
+								},
+								{
+									"key": "sort_by",
+									"value": "{{caseSortBy}}"
+								},
+								{
+									"key": "page_index",
+									"value": "{{page}}"
+								}
+							]
+						},
+						"description": "Returns summary information for cases associated with the specified user or users."
+					},
+					"response": []
+				}
+			],
+			"description": "Cisco Support Case API v3 provides a powerful, convenient, and simple way to interact with the Cisco Support Case Manager tool and aims to improve the partner and customer experience by enabling access case information instantly, programmatically, and in bulk. https://developer.cisco.com/docs/support-apis/#!case",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "38998c21-339b-43ee-93d6-a38aaecec102",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "27ae22d2-b66b-47fb-b0dd-4955e0df50f9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "EoX v5",
+			"item": [
+				{
+					"name": "EoX by Dates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/supporttools/eox/rest/5/EOXByDates/{{page}}/{{fromDateyyyymmdd}}/{{toDateyyyymmdd}}?eoxAttrib={{eoxAttrib}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"supporttools",
+								"eox",
+								"rest",
+								"5",
+								"EOXByDates",
+								"{{page}}",
+								"{{fromDateyyyymmdd}}",
+								"{{toDateyyyymmdd}}"
+							],
+							"query": [
+								{
+									"key": "eoxAttrib",
+									"value": "{{eoxAttrib}}"
+								}
+							]
+						},
+						"description": "Returns all active and inactive EoX records for all products with the specified eoxAttrib value within the startDate and endDate values, inclusive. If you do not specify an eoxAttrib value, this method returns records with an updated time stamp within the specified date range. https://developer.cisco.com/docs/support-apis/#!eox/introduction"
+					},
+					"response": []
+				},
+				{
+					"name": "EoX by PID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/supporttools/eox/rest/5/EOXByProductID/{{page}}/{{pid}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"supporttools",
+								"eox",
+								"rest",
+								"5",
+								"EOXByProductID",
+								"{{page}}",
+								"{{pid}}"
+							]
+						},
+						"description": "Returns one or more EOX records for the product or products with the specified product ID (PID) or product IDs"
+					},
+					"response": []
+				},
+				{
+					"name": "EoX by SN",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/supporttools/eox/rest/5/EOXBySerialNumber/{{page}}/{{serialNumber}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"supporttools",
+								"eox",
+								"rest",
+								"5",
+								"EOXBySerialNumber",
+								"{{page}}",
+								"{{serialNumber}}"
+							]
+						},
+						"description": "Returns the EoX record for products with the specified serial numbers. (If the device PID is known, EoX by PID is more efficient as end of life data is by product ID and therefore EOX by SN must convert the SN to the PID then request end of life data.)"
+					},
+					"response": []
+				},
+				{
+					"name": "EoX by Software Release",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/supporttools/eox/rest/5/EOXBySWReleaseString/{{page}}?input1={{swRelease}},{{osType}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"supporttools",
+								"eox",
+								"rest",
+								"5",
+								"EOXBySWReleaseString",
+								"{{page}}"
+							],
+							"query": [
+								{
+									"key": "input1",
+									"value": "{{swRelease}},{{osType}}"
+								}
+							]
+						},
+						"description": "Returns the EoX record for products associated with the specified software release and (optionally) the specified operating system"
+					},
+					"response": []
+				}
+			],
+			"description": "Cisco End of Life product data. Using the EoX Service API, customers and partners can request Cisco EoX product information for both hardware and software using a variety of input mechanisms. https://developer.cisco.com/docs/support-apis/#!eox/introduction",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "535058f6-d551-4c78-b5d5-98d76b6d99fe",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf550a5e-0044-4326-955f-6d547bd6fb4c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "ProdInfo v1",
+			"item": [
+				{
+					"name": "Product Information by Serial Number",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/product/v1/information/serial_numbers/{{serialNumber}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"product",
+								"v1",
+								"information",
+								"serial_numbers",
+								"{{serialNumber}}"
+							]
+						},
+						"description": "Returns product information associated with the specified serial number or numbers. https://developer.cisco.com/docs/support-apis/#!product-information"
+					},
+					"response": []
+				},
+				{
+					"name": "Product Information by PID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/product/v1/information/product_ids/{{pid}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"product",
+								"v1",
+								"information",
+								"product_ids",
+								"{{pid}}"
+							]
+						},
+						"description": "Returns product information associated with the specified product identifier or identifiers."
+					},
+					"response": []
+				},
+				{
+					"name": "Product MDF Information by Product Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/product/v1/information/product_ids_mdf/{{pid}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"product",
+								"v1",
+								"information",
+								"product_ids_mdf",
+								"{{pid}}"
+							]
+						},
+						"description": "Returns metadata framework (MDF) identifiers associated with the specified product identifier or identifiers."
+					},
+					"response": []
+				}
+			],
+			"description": "Cisco Product Information API assists customers and partners in finding product information associated with the device or PID. https://developer.cisco.com/docs/support-apis/#!product-information/introduction",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b9cd4b6a-cf97-42b2-810b-efdca448451c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "a0ea3e2c-5ff9-405d-a9d3-5c400a2dac37",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "SN2Info V2",
+			"item": [
+				{
+					"name": "Coverage Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/sn2info/v2/coverage/status/serial_numbers/{{serialNumber}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"sn2info",
+								"v2",
+								"coverage",
+								"status",
+								"serial_numbers",
+								"{{serialNumber}}"
+							]
+						},
+						"description": "Contract coverage status for specified serial number(s). https://developer.cisco.com/docs/support-apis/#!serial-number-to-information"
+					},
+					"response": []
+				},
+				{
+					"name": "Coverage Summary",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://{{apiServer}}/sn2info/v2/coverage/summary/serial_numbers/{{serialNumber}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"sn2info",
+								"v2",
+								"coverage",
+								"summary",
+								"serial_numbers",
+								"{{serialNumber}}"
+							]
+						},
+						"description": "Coverage summary for specified serial number(s)."
+					},
+					"response": []
+				},
+				{
+					"name": "Coverage Summary by Instance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/sn2info/v2/coverage/summary/instance_numbers/{{instanceId}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"sn2info",
+								"v2",
+								"coverage",
+								"summary",
+								"instance_numbers",
+								"{{instanceId}}"
+							]
+						},
+						"description": "Coverage summary for specified instance number(s)"
+					},
+					"response": []
+				},
+				{
+					"name": "Orderable Product Identifier(s)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/sn2info/v2/identifiers/orderable/serial_numbers/{{serialNumber}} ",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"sn2info",
+								"v2",
+								"identifiers",
+								"orderable",
+								"serial_numbers",
+								"{{serialNumber}} "
+							]
+						},
+						"description": "Orderable PIDs for specified serial number(s)"
+					},
+					"response": []
+				},
+				{
+					"name": "Owner Coverage Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/sn2info/v2/coverage/owner_status/serial_numbers/{{serialNumber}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"sn2info",
+								"v2",
+								"coverage",
+								"owner_status",
+								"serial_numbers",
+								"{{serialNumber}}"
+							]
+						},
+						"description": "Owner coverage status for specified serial number(s)"
+					},
+					"response": []
+				}
+			],
+			"description": "Serial Number to Information API assists customers and partners in identifying an orderable PID and coverage status based on a serial number.\nhttps://developer.cisco.com/docs/support-apis/#!serial-number-to-information",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ca188c3c-9767-4385-ac3b-246963487e3b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "14e3be14-f664-4219-aec2-ea31b7128a3d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Software Suggestion v2",
+			"item": [
+				{
+					"name": "Suggested Releases and Images by PIDs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/software/suggestion/v2/suggestions/software/productIds/{{pid}}?pageIndex={{page}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"software",
+								"suggestion",
+								"v2",
+								"suggestions",
+								"software",
+								"productIds",
+								"{{pid}}"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "{{page}}"
+								}
+							]
+						},
+						"description": "Returns a list of Cisco suggested software releases and images for a list of product IDs."
+					},
+					"response": []
+				},
+				{
+					"name": "Suggested Releases by PIDs (No Images)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/software/suggestion/v2/suggestions/releases/productIds/{{pid}}?pageIndex={{page}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"software",
+								"suggestion",
+								"v2",
+								"suggestions",
+								"releases",
+								"productIds",
+								"{{pid}}"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "{{page}}"
+								}
+							]
+						},
+						"description": "Returns a list of Cisco suggested software releases (without images) for a list of product IDs."
+					},
+					"response": []
+				},
+				{
+					"name": "Compatible and Suggested Software Releases by PID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/software/suggestion/v2/suggestions/compatible/productId/{{pid}}?pageIndex={{page}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"software",
+								"suggestion",
+								"v2",
+								"suggestions",
+								"compatible",
+								"productId",
+								"{{pid}}"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "{{page}}"
+								}
+							]
+						},
+						"description": "Returns compatible and suggested software releases for a product given its product identifier (PID) and specific software attributes."
+					},
+					"response": []
+				},
+				{
+					"name": "Suggested Releases and Images by MDF IDs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/software/suggestion/v2/suggestions/software/mdfIds/{{mdfId}}?pageIndex={{page}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"software",
+								"suggestion",
+								"v2",
+								"suggestions",
+								"software",
+								"mdfIds",
+								"{{mdfId}}"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "{{page}}"
+								}
+							]
+						},
+						"description": "Returns a list of Cisco suggested software releases and images for a list of mdf IDs."
+					},
+					"response": []
+				},
+				{
+					"name": "Suggested Releases by MDF IDs (No Images)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/software/suggestion/v2/suggestions/releases/mdfIds/{{mdfId}}?pageIndex={{page}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"software",
+								"suggestion",
+								"v2",
+								"suggestions",
+								"releases",
+								"mdfIds",
+								"{{mdfId}}"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "{{page}}"
+								}
+							]
+						},
+						"description": "Returns a list of Cisco suggested software releases (without images) for a list of MDF IDs."
+					},
+					"response": []
+				},
+				{
+					"name": "Compatible and Suggested Software Releases by MDF ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "https://{{apiServer}}/software/suggestion/v2/suggestions/compatible/mdfId/{{mdfId}}?pageIndex={{page}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"software",
+								"suggestion",
+								"v2",
+								"suggestions",
+								"compatible",
+								"mdfId",
+								"{{mdfId}}"
+							],
+							"query": [
+								{
+									"key": "pageIndex",
+									"value": "{{page}}"
+								}
+							]
+						},
+						"description": "Returns compatible and suggested software releases for a product given its MDF identifier (mdfId) and specific software attributes."
+					},
+					"response": []
+				}
+			],
+			"description": "Cisco Software Suggestions streamline the software selection process by providing the necessary information to assist you in making intelligent choices for upgrading your software. https://developer.cisco.com/docs/support-apis/#!software-suggestion/introduction",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "SVO RMA v1",
+			"item": [
+				{
+					"name": "RMA Details by RMA Number",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://{{apiServer}}/return/v1.0/returns/rma_numbers/{{rmaNumber}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"return",
+								"v1.0",
+								"returns",
+								"rma_numbers",
+								"{{rmaNumber}}"
+							]
+						},
+						"description": "Returns detailed information about the specified RMA. https://developer.cisco.com/docs/support-apis/#!service-order-return-rma"
+					},
+					"response": []
+				},
+				{
+					"name": "RMAs by User ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"disabled": false,
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "https://{{apiServer}}/return/v1.0/returns/users/user_ids/{{rmaCCOId}}?fromDate={{fromDateyyyymmdd}}&toDate={{toDateyyyymmdd}}&pageIndex={{page}}",
+							"protocol": "https",
+							"host": [
+								"{{apiServer}}"
+							],
+							"path": [
+								"return",
+								"v1.0",
+								"returns",
+								"users",
+								"user_ids",
+								"{{rmaCCOId}}"
+							],
+							"query": [
+								{
+									"key": "fromDate",
+									"value": "{{fromDateyyyymmdd}}"
+								},
+								{
+									"key": "toDate",
+									"value": "{{toDateyyyymmdd}}"
+								},
+								{
+									"key": "pageIndex",
+									"value": "{{page}}"
+								}
+							]
+						},
+						"description": "Returns a list of RMAs associated with the specified user. By default, the last 30 days of RMAs for a user is returned."
+					},
+					"response": []
+				}
+			],
+			"description": "Cisco Service Order Return (RMA) API provides a powerful, convenient, and simple way to interact with the Cisco RMA service and enables you to access RMA information instantly, programmatically, and in bulk. https://developer.cisco.com/docs/support-apis/#!service-order-return-rma",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "20c1fb7a-489a-412d-9039-25bda5107946",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "4643ae7b-8c53-4b95-a803-cb6a851bad88",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Token Request",
+			"item": [
+				{
+					"name": "Get Client Credentials Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e6b8eba2-c518-49c8-9527-429ceb710c5a",
+								"exec": [
+									"var response = JSON.parse(responseBody);",
+									"postman.setGlobalVariable(\"token\", response.access_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{clientId}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{clientSecret}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{authServer}}/as/token.oauth2",
+							"protocol": "https",
+							"host": [
+								"{{authServer}}"
+							],
+							"path": [
+								"as",
+								"token.oauth2"
+							]
+						},
+						"description": "Get a token via the client credentials grant type and set a Postman global variable \"token\" to its value for use in API calls."
+					},
+					"response": []
+				}
+			],
+			"description": "Sample get token requests to the cloudsso token server.",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c61e9ac0-174b-4f9e-9f04-5e843f791ab6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "e7c3d338-32e2-4ec8-abb4-7361ec31d3ce",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "accessToken",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "tokenType",
+				"value": "Bearer",
+				"type": "string"
+			},
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6fb185ad-baf0-478d-b565-205223000b16",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "712e9685-dd5c-4fe5-b58c-a697a744c51c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
