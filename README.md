@@ -9,7 +9,7 @@ The Cisco Support APIs remove barriers to enterprise automation and can help end
 Cisco Support APIs are available only to Cisco Smart Net Total Care (SNTC) customers and Cisco Partner Support Service (PSS) partner. Access is gated by a role-based process that is administered by the customer or partner in the Cisco Services Access Manager tool. The remaining steps to gain access to the Cisco Support APIs depend on whether you are an SNTC customer or a PSS partner.
 
 ### Onboarding Process
-To obtain access to the Cisco Support APIs you must assign someone from your organization as a Delegated Administrator. This individual is responsible for granting access to additional users and administrators within your organization. The process to onboard the Delegated Administrator depends on whether you are a Cisco Partner Service Support (PSS) partners or a Smart Net Total Care (SNTC) customer. Refer to the appropriate onboarding process below.
+To obtain access to the Cisco Support APIs you must assign someone from your organization as a Delegated Administrator. This individual is responsible for granting access to additional users and administrators within your organization. The process to onboard the Delegated Administrator depends on whether you are a Cisco Partner Service Support (PSS) partners or a Smart Net Total Care (SNTC) customer. Refer to the appropriate onboarding process here https://apiconsole.cisco.com/
 
 ## Cisco Support API Portfolio
 
@@ -54,6 +54,13 @@ Protocols: REST
 Data Format: JSON##
 
 
+### How do I get started?
+To gain access to Cisco's APIs, you will need to [sign in](https://apiconsole.cisco.com/login/external?r=https%3A%2F%2Fapiconsole.cisco.com%2F&h=97947f7bfd52ff597fa120c847cc4e02) with your Cisco ID. (If you don't have one, please [request](https://identity.cisco.com/ui/tenants/global/v1.0/enrollment-ui) a Cisco ID.)
+
+1. Register Your Application with selected APIs to receive your OAuth2.0 credentials.
+2. Get Access Tokens using your applications OAuth2.0 credentials.
+3. Make API Calls using your token and get access to your data.
+
 ### How to import a collection into Postman
 
 - Download the Postman applciation for your OS [Postman Downloads](https://www.postman.com/downloads/)
@@ -64,6 +71,6 @@ Data Format: JSON##
 
 ## How to use
 
-The collection contains one sample call for each endpoint of the Support APIs (minus the Automated Software Distribution (ASD) API) with what I consider the most common parameters. The Support APIs use OAuth 2 for authentication so I set OAuth client credentials at the collection level; the individual calls inherit from there.
+The collection contains one sample call for each endpoint of the Support APIs. The Support APIs use OAuth 2 for authentication so the OAuth client credentials are set at the collection level (individuals calls are inherited from there)
  
-The collection also contains a sample OAuth 2 call to the Cisco token server to get a token via the client credentials grant type. While this is not really part of the Support APIs, I wanted to give the developers a way to see the actual call to the token server if they were using Postman to model their code. This request includes a post-request "Test" that takes the access token from the response and populates the {{token}} env variable for subsequent use. (My workflow within Postman used the get token request and not the embedded OAuth process. I found it easier to manually run get token whenever a token expired and have it automatically populate {{token}} then go through Postman's Authorization tab process.)
+The collection also contains a sample OAuth 2 call to the Cisco token server to get a token via the client credentials grant type. While this is not really part of the Support APIs, This gives a developer a way to see the actual call to the token server if developers are using Postman to model the code. This request includes a post-request "Test" that takes the access token from the response and populates the {{token}} env variable for subsequent use.
