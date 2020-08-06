@@ -3,6 +3,14 @@
 ## What are the Cisco Support APIs?
 The Cisco Support APIs remove barriers to enterprise automation and can help end users shorten sales cycles and reduce operating expenses. This new way of delivering support information empowers customers and partners to use Cisco data in new and innovative ways to increase productivity and add new value to their business. The beauty of this approach is in its flexibility. Specifically, the Support APIs leverage Cisco's strength in delivering rich knowledge while providing options to customers and partners as to how they want to consume it. In addition, the Cisco Support API foundation provides the reference for future customer-facing and partner-facing web services and applications that will enable customers and partners to more effectively support Cisco products, networks and applications within their own business processes and systems.
 
+## Getting Started with Cisco Support APIS for SNTC
+
+### Overview
+Cisco Support APIs are available only to Cisco Smart Net Total Care (SNTC) customers and Cisco Partner Support Service (PSS) partner. Access is gated by a role-based process that is administered by the customer or partner in the Cisco Services Access Manager tool. The remaining steps to gain access to the Cisco Support APIs depend on whether you are an SNTC customer or a PSS partner.
+
+### Onboarding Process
+To obtain access to the Cisco Support APIs you must assign someone from your organization as a Delegated Administrator. This individual is responsible for granting access to additional users and administrators within your organization. The process to onboard the Delegated Administrator depends on whether you are a Cisco Partner Service Support (PSS) partners or a Smart Net Total Care (SNTC) customer. Refer to the appropriate onboarding process below.
+
 ## Cisco Support API Portfolio
 
 ### Automated Software Distribution
@@ -44,6 +52,15 @@ Data Format: JSON
 The Software Suggestion API service provides access to Cisco suggested software based on stability, longevity, adoption rate and other factors for a growing list of Cisco products. Customers and partners can access Cisco suggested and other available software based on their product, feature upgrade needs and hardware configuration. For more information visit [Software Research tool])https://pubhub.devnetcloud.com/media/support-apis/docs/http://software.cisco.com/selection/research.html).
 Protocols: REST
 Data Format: JSON##
+
+
+### How to import a collection into Postman
+
+- Download the Postman applciation for your OS [Postman Downloads](https://www.postman.com/downloads/)
+- To open the Postman application 
+- Click on the file tab and then click import
+- Choose the folder method you want to import an item
+- Choose the item `Cisco_Support_API_Postman` to import and press open. Postman will automatically import the item
 
 ## How to use
 
